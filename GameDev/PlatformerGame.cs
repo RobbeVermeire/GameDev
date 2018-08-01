@@ -7,17 +7,20 @@ namespace GameDev
     /// <summary>
     /// This is the main type for your game.
     /// </summary>
-    public class Game1 : Game
+    public class PlatformerGame : Game
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-        private Texture2D _playerTex;
-        private Vector2 _playerPos = new Vector2(100, 100);
+        Player player;
 
-        public Game1()
+        //KeyboardState in variable steken
+        private KeyboardState keyboardState;
+
+        public PlatformerGame()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
+            
         }
 
         /// <summary>
@@ -30,6 +33,9 @@ namespace GameDev
         {
             // TODO: Add your initialization logic here
 
+            //Singleton player klasse
+            if (player == null)
+                player = new Player();
             base.Initialize();
         }
 
@@ -41,7 +47,7 @@ namespace GameDev
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
-            _playerTex = Content.Load<Texture2D>("p3_stand");
+            player.Texture = Content.Load<Texture2D>("p3_stand");
 
             // TODO: use this.Content to load your game content here
         }
@@ -62,17 +68,18 @@ namespace GameDev
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
-            KeyboardState keyboardState = Keyboard.GetState();
+            //Input handling:
+            keyboardState = Keyboard.GetState();
             if (keyboardState.IsKeyDown(Keys.Escape))
                 Exit();
             if (keyboardState.IsKeyDown(Keys.Right))
-                _playerPos.X += 5;
+                player.Position.X += 5;
             else if (keyboardState.IsKeyDown(Keys.Left))
-                _playerPos.X -= 5;
+                player.Position.X -= 5;
             if (keyboardState.IsKeyDown(Keys.Down))
-                _playerPos.Y += 5;
+                player.Position.Y += 5;
             else if (keyboardState.IsKeyDown(Keys.Up))
-                _playerPos.Y -= 5;
+                player.Position.Y -= 5;
 
             // TODO: Add your update logic here
 
@@ -85,10 +92,10 @@ namespace GameDev
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.GhostWhite);
+            GraphicsDevice.Clear(Color.RoyalBlue);
 
             spriteBatch.Begin();
-            spriteBatch.Draw(_playerTex, _playerPos,Color.White);
+            spriteBatch.Draw(player.Texture, player.Position,Color.White);
             spriteBatch.End();
             
 

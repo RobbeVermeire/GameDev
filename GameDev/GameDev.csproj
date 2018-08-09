@@ -41,8 +41,13 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="GameClasses\Board.cs" />
+    <Compile Include="GameClasses\Camera.cs" />
+    <Compile Include="GameClasses\Sprite.cs" />
+    <Compile Include="GameClasses\TileRenderer.cs" />
+    <Compile Include="GameClasses\Tile.cs" />
     <Compile Include="PlatformerGame.cs" />
-    <Compile Include="Game\Player.cs" />
+    <Compile Include="GameClasses\Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

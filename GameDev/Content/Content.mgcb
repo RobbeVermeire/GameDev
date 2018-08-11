@@ -13,7 +13,11 @@
 
 #---------------------------------- Content ---------------------------------#
 
+<<<<<<< HEAD
 #begin Player/p1_duck.png
+=======
+#begin p3_stand.png
+>>>>>>> parent of b1f6066... Basisch Fysica & Collision detection
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -23,6 +27,7 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
+<<<<<<< HEAD
 /build:Player/p1_duck.png
 
 #begin Player/p1_front.png
@@ -2736,4 +2741,7 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Tiles/window.png
+=======
+/build:p3_stand.png
+>>>>>>> parent of b1f6066... Basisch Fysica & Collision detection
 

@@ -41,14 +41,17 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <Compile Include="GameClasses\AABB.cs" />
     <Compile Include="GameClasses\Board.cs" />
     <Compile Include="GameClasses\Camera.cs" />
     <Compile Include="GameClasses\Sprite.cs" />
     <Compile Include="GameClasses\TileRenderer.cs" />
     <Compile Include="GameClasses\Tile.cs" />
+=======
+>>>>>>> parent of b1f6066... Basisch Fysica & Collision detection
     <Compile Include="PlatformerGame.cs" />
-    <Compile Include="GameClasses\Player.cs" />
+    <Compile Include="Game\Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

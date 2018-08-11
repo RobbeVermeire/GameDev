@@ -1,5 +1,4 @@
-﻿using GameDev.GameClasses;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
@@ -10,19 +9,16 @@ namespace GameDev
     /// </summary>
     public class PlatformerGame : Game
     {
-        private GraphicsDeviceManager _graphics;
-        private SpriteBatch _spriteBatch;
-        Player _player;
-        Board _board;
+        GraphicsDeviceManager graphics;
+        SpriteBatch spriteBatch;
+        Player player;
 
+        //KeyboardState in variable steken
+        private KeyboardState keyboardState;
 
         public PlatformerGame()
         {
-            _graphics = new GraphicsDeviceManager(this);
-            //Width = 70px*15columns
-            _graphics.PreferredBackBufferWidth = 1050;
-            //Height = 70px*10rows
-            _graphics.PreferredBackBufferHeight = 700;
+            graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             
         }
@@ -36,6 +32,10 @@ namespace GameDev
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
+
+            //Singleton player klasse
+            if (player == null)
+                player = new Player();
             base.Initialize();
         }
 
@@ -46,10 +46,9 @@ namespace GameDev
         protected override void LoadContent()
         {
             // Create a new SpriteBatch, which can be used to draw textures.
-            _spriteBatch = new SpriteBatch(GraphicsDevice);   
-            _board = new Board(15, 10, Content.Load<Texture2D>("Tiles/box"), _spriteBatch);
-            _player = new Player(Content.Load<Texture2D>("Player/p1_stand"), Vector2.One*100, _spriteBatch);
-            
+            spriteBatch = new SpriteBatch(GraphicsDevice);
+            player.Texture = Content.Load<Texture2D>("p3_stand");
+
             // TODO: use this.Content to load your game content here
         }
 
@@ -69,9 +68,22 @@ namespace GameDev
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update(GameTime gameTime)
         {
+            //Input handling:
+            keyboardState = Keyboard.GetState();
+            if (keyboardState.IsKeyDown(Keys.Escape))
+                Exit();
+            if (keyboardState.IsKeyDown(Keys.Right))
+                player.Position.X += 5;
+            else if (keyboardState.IsKeyDown(Keys.Left))
+                player.Position.X -= 5;
+            if (keyboardState.IsKeyDown(Keys.Down))
+                player.Position.Y += 5;
+            else if (keyboardState.IsKeyDown(Keys.Up))
+                player.Position.Y -= 5;
+
             // TODO: Add your update logic here
+
             base.Update(gameTime);
-            _player.Update(gameTime);
         }
 
         /// <summary>
@@ -82,10 +94,9 @@ namespace GameDev
         {
             GraphicsDevice.Clear(Color.RoyalBlue);
 
-            _spriteBatch.Begin();
-            _board.Draw();
-            _spriteBatch.Draw(_player.Texture, _player.Position,Color.White);
-            _spriteBatch.End();
+            spriteBatch.Begin();
+            spriteBatch.Draw(player.Texture, player.Position,Color.White);
+            spriteBatch.End();
             
 
 

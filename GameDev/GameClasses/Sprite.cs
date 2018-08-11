@@ -15,12 +15,12 @@ namespace GameDev.GameClasses
     class Sprite
     {
         public Vector2 Position { get; set; }
+        public Vector2 Speed { get; set; }
+        public Vector2 Acceleration { get;set; }
         public Texture2D Texture { get; set; }
         public SpriteBatch SpriteBatch { get; set; }
 
-        public Rectangle GetAABB()
-        { return new Rectangle((int)Position.X, (int)Position.Y, Texture.Width, Texture.Height); }
-
+        public AABB AABB => new AABB((int)Position.X, (int)Position.Y, Texture.Width, Texture.Height);
         public Sprite(Texture2D tex, Vector2 pos, SpriteBatch batch)
         {
             Texture = tex;

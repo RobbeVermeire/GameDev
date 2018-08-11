@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.27428.2005
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameDev", "GameDev\GameDev.csproj", "{359E60A9-74EE-4102-AF8A-54CE7CCC6AB1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlatformerGame2", "PlatformerGame2\PlatformerGame2.csproj", "{4B697198-EE67-46C3-B293-9D1E0DF48E26}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -15,6 +17,10 @@ Global
 		{359E60A9-74EE-4102-AF8A-54CE7CCC6AB1}.Debug|x86.Build.0 = Debug|x86
 		{359E60A9-74EE-4102-AF8A-54CE7CCC6AB1}.Release|x86.ActiveCfg = Release|x86
 		{359E60A9-74EE-4102-AF8A-54CE7CCC6AB1}.Release|x86.Build.0 = Release|x86
+		{4B697198-EE67-46C3-B293-9D1E0DF48E26}.Debug|x86.ActiveCfg = Debug|x86
+		{4B697198-EE67-46C3-B293-9D1E0DF48E26}.Debug|x86.Build.0 = Debug|x86
+		{4B697198-EE67-46C3-B293-9D1E0DF48E26}.Release|x86.ActiveCfg = Release|x86
+		{4B697198-EE67-46C3-B293-9D1E0DF48E26}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

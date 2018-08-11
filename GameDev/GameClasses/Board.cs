@@ -51,7 +51,7 @@ namespace GameDev.GameClasses
             {
                 for(int y=0;y<Rows;y++)
                 {
-                    if (x == 0 || x == Columns-1 || y == 0 || y==Rows-1)
+                    if (x == 0 || y == 0 || y==Rows-1)
                     {
                         Tiles[x, y].IsBlocked = true;
                     }
@@ -67,11 +67,11 @@ namespace GameDev.GameClasses
             }
         }
 
-        public bool HasRoomForRectangle(Rectangle rectangleToCheck)
+        public bool HasRoomForRectangle(AABB rectangleToCheck)
         {
             foreach (var tile in Tiles)
             {
-                if (tile.IsBlocked && tile.GetAABB().Intersects(rectangleToCheck))
+                if (tile.IsBlocked && tile.AABB.Overlaps(rectangleToCheck))
                 {
                     return false;
                 }
@@ -81,7 +81,6 @@ namespace GameDev.GameClasses
 
         public Vector2 WhereCanIGetTo(Vector2 originalPosition, Vector2 destination, Rectangle boundingRectangle)
         {
-
             Vector2 movementToTry = destination - originalPosition;
             Vector2 furthestAvailableLocationSoFar = originalPosition;
             int numberOfStepsToBreakMovementInto = (int)(movementToTry.Length() * 2) + 1;

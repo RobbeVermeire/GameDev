@@ -6,11 +6,11 @@
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{359E60A9-74EE-4102-AF8A-54CE7CCC6AB1}</ProjectGuid>
+    <ProjectGuid>{4B697198-EE67-46C3-B293-9D1E0DF48E26}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>GameDev</RootNamespace>
-    <AssemblyName>GameDev</AssemblyName>
+    <RootNamespace>PlatformerGame2</RootNamespace>
+    <AssemblyName>PlatformerGame2</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MonoGamePlatform>Windows</MonoGamePlatform>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
@@ -41,14 +41,11 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="GameClasses\AABB.cs" />
-    <Compile Include="GameClasses\Board.cs" />
-    <Compile Include="GameClasses\Camera.cs" />
-    <Compile Include="GameClasses\Sprite.cs" />
-    <Compile Include="GameClasses\TileRenderer.cs" />
-    <Compile Include="GameClasses\Tile.cs" />
-    <Compile Include="PlatformerGame.cs" />
-    <Compile Include="GameClasses\Player.cs" />
+    <Compile Include="Classes\AABB.cs" />
+    <Compile Include="Classes\CharacterState.cs" />
+    <Compile Include="Classes\MovingObject.cs" />
+    <Compile Include="Classes\Player.cs" />
+    <Compile Include="Game1.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
